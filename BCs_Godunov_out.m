@@ -116,7 +116,7 @@ end
 function WSol = exact2WSol(WL,WR,gamma,BCs)
 
 % Avoid negative and complex states by penalizing these cases:
-if (any(WL < 0) || any(WR < 0) || ~isreal(WL) || ~isreal(WR))
+if (any(WL([1 3],1) < 0) || any(WR([1 3],1) < 0) || ~isreal(WL) || ~isreal(WR))
     W = NaN(3,1);
 else
     % Obtain original WSol vector:
